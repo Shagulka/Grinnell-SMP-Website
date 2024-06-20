@@ -2,9 +2,120 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grinnell SMP</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1f1f1f;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1, h2, h3 {
+            color: #ff9800;
+        }
+        p {
+            line-height: 1.6;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #ff9800;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .contact, .donation {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #333333;
+            border-left: 4px solid #ff9800;
+            border-radius: 4px;
+        }
+        .contact p, .donation p {
+            margin: 5px 0;
+        }
+        .contact a, .donation a {
+            color: #ff9800;
+        }
+        code {
+            background-color: #2e2e2e;
+            padding: 5px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            color: #ff9800;
+        }
+        .copy-button {
+            background-color: #ff9800;
+            border: none;
+            color: #121212;
+            padding: 5px 10px;
+            margin-left: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        .copy-button:hover {
+            background-color: #e68900;
+        }
+    </style>
 </head>
 <body>
-ABOBUS
+    <div class="container">
+        <h1>Grinnell SMP</h1>
+        <p>Grinnell SMP is a simple vanilla server without any significant mods blah blah blah have fun</p>
+
+        <h2>Installation</h2>
+        <ol>
+            <li>Get Prism Launcher at <a href="https://prismlauncher.org/download/" target="_blank" rel="noopener noreferrer">Prism Launcher Download</a></li>
+            <li>Install it following the website instructions</li>
+            <li>In the launcher, click the 'Add Instance' button</li>
+            <li>Choose import and paste this link: <code id="instance-link">https://github.com/Shagulka/Grinnell-SMP-Website/raw/main/GrinnellSMP.zip</code>
+                <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+            </li>
+            <li>You can now start the instance and play on the server!</li>
+            <li>If Prism Launcher asks you for an account, you can add either Microsoft (if you have the license) or offline (you will still be able to play online)</li>
+            <li>The server should be already in the server list automatically; if it isn't, just use <strong>grinnell.fun</strong> as the IP</li>
+        </ol>
+
+        <div class="contact">
+            <h2>Contact & Support</h2>
+            <p>My name is Boris Khesin and I am a Grinnell Student of Class 2028. Feel free to reach out to me:</p>
+            <p><a href="https://discordapp.com/user/583624067156803587">my Discord</a> (DOESN'T WORK JUST DM ME @shagulka)</p>
+            <p><a href="https://t.me/shagulka">my Telegram</a></p>
+
+            <div class="donation">
+                <h3>Donations</h3>
+                <p>The server maintenance costs $27/mo, so any help is appreciated.</p>
+                <p><strong>TON:</strong> <span id="ton-wallet">UQAHVhGgt7iBnih2u-6BD5e2anJtKPq9sZA9IF2jD0sIxqgY</span></p>
+                <p><strong>USDT:</strong> <span id="eth-wallet">TKXh8jgG7AN7zo9HiGFKy4bDBefKAfrJkV</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const instanceLink = document.getElementById('instance-link').textContent;
+            navigator.clipboard.writeText(instanceLink).then(() => {
+                document.querySelector('.copy-button').textContent = 'Copied!';
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
 </body>
 </html>
