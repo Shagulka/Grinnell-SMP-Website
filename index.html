@@ -26,7 +26,7 @@
         p {
             line-height: 1.6;
         }
-        ul {
+        ul, ol {
             padding-left: 20px;
         }
         li {
@@ -72,6 +72,16 @@
         .copy-button:hover {
             background-color: #e68900;
         }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            .copy-button {
+                padding: 5px;
+                margin-left: 5px;
+                font-size: 0.8em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -92,6 +102,25 @@
             <li>The server should be already in the server list automatically; if it isn't, just use <strong>grinnell.fun</strong> as the IP</li>
         </ol>
 
+        <h2>Manual Installation</h2>
+        <p>If you prefer to install the mods manually without using Prism Launcher, follow these steps:</p>
+        <ol>
+            <li>Download and install Minecraft from the official <a href="https://www.minecraft.net/" target="_blank" rel="noopener noreferrer">Minecraft website</a>.<br>
+            Or use any other launcher if you are a sea sailer, for example <a href="https://llaun.ch/en">Legacy Launcher</a></li>
+            <li>The version of Minecraft should be 1.20.6</li>
+            <li>Download and install the latest version of <a href="https://fabricmc.net/use/" target="_blank" rel="noopener noreferrer">Fabric Loader</a>.</li>
+            <li>Download the following mods and place them in your <code>.minecraft/mods</code> folder:
+                <ul>
+                    <li><a href="https://www.curseforge.com/minecraft/mc-mods/simple-voice-chat" target="_blank" rel="noopener noreferrer">Simple Voice Chat</a> (required)</li>
+                    <li><a href="https://www.curseforge.com/minecraft/mc-mods/just-enough-items-jei" target="_blank" rel="noopener noreferrer">Just Enough Items (JEI)</a> (recommended)</li>
+                    <li><a href="https://www.curseforge.com/minecraft/mc-mods/sodium" target="_blank" rel="noopener noreferrer">Sodium</a> (recommended)</li>
+                </ul>
+            </li>
+            <li>Launch Minecraft using the Fabric Loader profile.</li>
+            <li>Add the server using the IP: <strong>grinnell.fun</strong>.</li>
+            <li>Join the server and have fun!</li>
+        </ol>
+
         <div class="contact">
             <h2>Contact & Support</h2>
             <p>My name is Boris Khesin and I am a Grinnell Student of Class 2028. Feel free to reach out to me:</p>
@@ -100,7 +129,7 @@
 
             <div class="donation">
                 <h3>Donations</h3>
-                <p>The server maintenance costs $27/mo, so any help is appreciated.</p>
+                <p>The server maintenance costs $27/year, so any help is appreciated.</p>
                 <p><strong>TON:</strong> <span id="ton-wallet">UQAHVhGgt7iBnih2u-6BD5e2anJtKPq9sZA9IF2jD0sIxqgY</span></p>
                 <p><strong>USDT:</strong> <span id="eth-wallet">TKXh8jgG7AN7zo9HiGFKy4bDBefKAfrJkV</span></p>
             </div>
