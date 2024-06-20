@@ -72,6 +72,20 @@
         .copy-button:hover {
             background-color: #e68900;
         }
+        .bypass-info {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #333333;
+            border-left: 4px solid #ff9800;
+            border-radius: 4px;
+        }
+        .show-bypass {
+            margin-top: 20px;
+            color: #ff9800;
+            cursor: pointer;
+            text-decoration: underline;
+        }
         @media (max-width: 600px) {
             .container {
                 padding: 15px;
@@ -98,7 +112,30 @@
                 <button class="copy-button" onclick="copyToClipboard()">Copy</button>
             </li>
             <li>You can now start the instance and play on the server!</li>
-            <li>If Prism Launcher asks you for an account, you can add either Microsoft (if you have the license) or offline (you will still be able to play online)</li>
+            <li>If Prism Launcher asks you for an account, you can add either Microsoft (if you have the license) or offline (you will still be able to play online)
+            <div class="bypass-info" id="bypass-info">
+            <h2>Bypass Prism Account Requirement</h2>
+            <p><strong>⚠️ This is for entertainment purposes only ⚠️</strong></p>
+            <p>If you want to bypass the requirement for a real Microsoft account, you can use the following steps:</p>
+            <ol>
+                <li>Install Prism Launcher from <a href="https://prismlauncher.org/download/" target="_blank" rel="noopener noreferrer">here</a> and go through the quick setup.</li>
+                <li>Close the launcher.</li>
+                <li>Execute the following command in the terminal appropriate for your OS:</li>
+                <ul>
+                    <li><strong>Windows CMD:</strong> <code>echo {"accounts": [{"entitlement": {"canPlayMinecraft": true,"ownsMinecraft": true},"type": "Offline"}],"formatVersion": 3} > %appdata%/PrismLauncher/accounts.json</code></li>
+                    <li><strong>Linux Shell:</strong> <code>echo '{"accounts": [{"entitlement": {"canPlayMinecraft": true,"ownsMinecraft": true},"type": "Offline"}],"formatVersion": 3}' > ~/.local/share/PrismLauncher/accounts.json</code></li>
+                    <li><strong>Linux Shell (flatpak):</strong> <code>echo '{"accounts": [{"entitlement": {"canPlayMinecraft": true,"ownsMinecraft": true},"type": "Offline"}],"formatVersion": 3}' > ~/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/accounts.json</code></li>
+                    <li><strong>macOS:</strong> <code>echo '{"accounts": [{"entitlement": {"canPlayMinecraft": true,"ownsMinecraft": true},"type": "Offline"}],"formatVersion": 3}' > ~/
+
+Library/Application\ Support/PrismLauncher/accounts.json</code></li>
+                </ul>
+                <li>Reopen Prism Launcher and create an offline account.</li>
+                <li>Delete the "No Profile" account.</li>
+                <li>Set the new offline account as the default.</li>
+                <li>Enjoy!</li>
+            </ol>
+        </div>
+        <p class="show-bypass" onclick="toggleBypassInfo()">Show information on how to bypass Prism account requirement</p></li>
             <li>The server should be already in the server list automatically; if it isn't, just use <strong>grinnell.fun</strong> as the IP</li>
             <li><strong>WHEN PLAYING FOR THE FIRST TIME DON'T FORGET TO CONFIGURE VOICE CHAT BY PRESSING 'V'</strong></li>
         </ol>
@@ -135,6 +172,30 @@
                 <p><strong>USDT:</strong> <span id="eth-wallet">TKXh8jgG7AN7zo9HiGFKy4bDBefKAfrJkV</span></p>
             </div>
         </div>
+
+        <div class="bypass-info" id="bypass-info">
+            <h2>Bypass Prism Account Requirement</h2>
+            <p><strong>⚠️ This is for entertainment purposes only ⚠️</strong></p>
+            <p>If you want to bypass the requirement for a real Microsoft account, you can use the following steps:</p>
+            <ol>
+                <li>Install Prism Launcher from <a href="https://prismlauncher.org/download/" target="_blank" rel="noopener noreferrer">here</a> and go through the quick setup.</li>
+                <li>Close the launcher.</li>
+                <li>Execute the following command in the terminal appropriate for your OS:</li>
+                <ul>
+                    <li><strong>Windows CMD:</strong> <code>echo {"accounts": [{"entitlement": {"canPlayMinecraft": true,"ownsMinecraft": true},"type": "Offline"}],"formatVersion": 3} > %appdata%/PrismLauncher/accounts.json</code></li>
+                    <li><strong>Linux Shell:</strong> <code>echo '{"accounts": [{"entitlement": {"canPlayMinecraft": true,"ownsMinecraft": true},"type": "Offline"}],"formatVersion": 3}' > ~/.local/share/PrismLauncher/accounts.json</code></li>
+                    <li><strong>Linux Shell (flatpak):</strong> <code>echo '{"accounts": [{"entitlement": {"canPlayMinecraft": true,"ownsMinecraft": true},"type": "Offline"}],"formatVersion": 3}' > ~/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/accounts.json</code></li>
+                    <li><strong>macOS:</strong> <code>echo '{"accounts": [{"entitlement": {"canPlayMinecraft": true,"ownsMinecraft": true},"type": "Offline"}],"formatVersion": 3}' > ~/
+
+Library/Application\ Support/PrismLauncher/accounts.json</code></li>
+                </ul>
+                <li>Reopen Prism Launcher and create an offline account.</li>
+                <li>Delete the "No Profile" account.</li>
+                <li>Set the new offline account as the default.</li>
+                <li>Enjoy!</li>
+            </ol>
+        </div>
+        <p class="show-bypass" onclick="toggleBypassInfo()">Show information on how to bypass Prism account requirement</p>
     </div>
 
     <script>
@@ -146,6 +207,15 @@
                 console.error('Failed to copy: ', err);
             });
         }
+
+        function toggleBypassInfo() {
+            const bypassInfo = document.getElementById('bypass-info');
+            bypassInfo.style.display = bypassInfo.style.display === 'none' ? 'block' : 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('bypass-info').style.display = 'none';
+        });
     </script>
 </body>
 </html>
